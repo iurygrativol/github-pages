@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="Gambelas Smile Clinic — Clínica de Medicina Dentária em Faro, Algarve. Parceria com o Hospital Particular do Algarve. Ortodontia, Implantologia, Odontopediatria e mais. Tel: 289 805 505.">
+  <title>Gambelas Smile Clinic | Medicina Dentária em Faro</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── TOKENS ──────────────────────────────────────────────── */
+    :root {
+      --petrol:    #1A3A4A;
+      --petrol-mid:#1E4D63;
+      --petrol-lt: #224F67;
+      --jade:      #4CAFA0;
+      --jade-lt:   #6BC4B6;
+      --amber:     #D4A853;
+      --amber-dk:  #BA8F3A;
+      --fog:       #F0F7F4;
+      --fog-dk:    #E4EEE9;
+      --ink:       #2C2C2C;
+      --ink-lt:    #5A6472;
+      --white:     #FFFFFF;
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --shadow-card: 0 4px 24px rgba(26,58,74,.10);
+      --shadow-hover: 0 8px 40px rgba(26,58,74,.18);
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+      --max-w: 1160px;
+      --section-pad: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 40px);
+    }
+
+    /* ── RESET ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--white);
+      font-size: 1rem;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; font-family: inherit; border: none; }
+
+    /* ── UTILITIES ───────────────────────────────────────────── */
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(20px,5vw,40px); }
+    .eyebrow {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--jade);
+      display: block;
+      margin-bottom: .75rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      color: var(--petrol);
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--ink-lt);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+
+    /* ── BUTTONS ─────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: .95rem;
+      padding: .85rem 1.7rem;
+      border-radius: var(--radius-sm);
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-amber {
+      background: var(--amber);
+      color: var(--petrol);
+      box-shadow: 0 4px 16px rgba(212,168,83,.35);
+    }
+    .btn-amber:hover {
+      background: var(--amber-dk);
+      box-shadow: 0 8px 28px rgba(212,168,83,.45);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255,255,255,.45);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.7); }
+    .btn-petrol {
+      background: var(--petrol);
+      color: var(--white);
+      box-shadow: 0 4px 16px rgba(26,58,74,.25);
+    }
+    .btn-petrol:hover { background: var(--petrol-mid); box-shadow: 0 8px 28px rgba(26,58,74,.35); }
+
+    /* ── NAVBAR ──────────────────────────────────────────────── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(26,58,74,.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(76,175,160,.15);
+      transition: box-shadow .3s;
+    }
+    .navbar.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,.25); }
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 1rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      flex-shrink: 0;
+    }
+    .logo-mark {
+      width: 38px; height: 38px;
+      background: var(--jade);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .logo-mark svg { width: 20px; height: 20px; }
+    .logo-text { line-height: 1.15; }
+    .logo-name {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      display: block;
+    }
+    .logo-tag {
+      font-size: .65rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--jade-lt);
+      font-weight: 500;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: .87rem;
+      font-weight: 500;
+      color: rgba(255,255,255,.75);
+      letter-spacing: .02em;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--jade-lt); }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      flex-shrink: 0;
+    }
+    .lang-switch {
+      display: flex;
+      gap: 0;
+      border: 1px solid rgba(76,175,160,.4);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+    .lang-switch button {
+      background: transparent;
+      color: rgba(255,255,255,.6);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      padding: .3rem .6rem;
+      transition: background .2s, color .2s;
+    }
+    .lang-switch button.active {
+      background: var(--jade);
+      color: var(--white);
+    }
+    .lang-switch button:hover:not(.active) { color: var(--white); }
+
+    .nav-cta { display: none; }
+    @media (min-width: 768px) { .nav-cta { display: inline-flex; } }
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      padding: .4rem;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: rgba(255,255,255,.8);
+      border-radius: 2px;
+      transition: transform .25s, opacity .25s;
+    }
+    @media (min-width: 900px) {
+      .hamburger { display: none; }
+      .nav-links { display: flex; }
+    }
+    @media (max-width: 899px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 68px; left: 0; right: 0;
+        background: var(--petrol);
+        padding: 1.25rem clamp(20px,5vw,40px) 1.5rem;
+        gap: .5rem;
+        border-bottom: 1px solid rgba(76,175,160,.2);
+      }
+      .nav-links.open a { font-size: 1rem; padding: .5rem 0; color: rgba(255,255,255,.85); display: block; }
+    }
+
+    /* ── HERO ────────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, var(--petrol) 0%, var(--petrol-mid) 60%, #1a4a55 100%);
+      padding-top: calc(68px + clamp(48px, 9vw, 96px));
+      padding-bottom: clamp(56px, 9vw, 96px);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%; right: -15%;
+      width: 650px; height: 650px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(76,175,160,.13) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -80px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,168,83,.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(36px, 6vw, 64px);
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    @media (min-width: 800px) {
+      .hero-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .hero-slogan {
+      font-family: var(--font-display);
+      font-size: clamp(.85rem,.85rem,1rem);
+      font-style: italic;
+      color: var(--jade-lt);
+      letter-spacing: .04em;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.13;
+      margin-bottom: 1.4rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--jade-lt);
+    }
+    .hero-lead {
+      font-size: clamp(1rem, 1.5vw, 1.1rem);
+      color: rgba(255,255,255,.78);
+      line-height: 1.75;
+      margin-bottom: 2.2rem;
+      max-width: 460px;
+    }
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .85rem;
+      align-items: center;
+    }
+    .hero-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem 2.5rem;
+      margin-top: 2.8rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+    .hero-fact-item {}
+    .hero-fact-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--amber);
+      line-height: 1;
+      display: block;
+    }
+    .hero-fact-label {
+      font-size: .78rem;
+      color: rgba(255,255,255,.55);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* HPA Badge card */
+    .hpa-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(76,175,160,.3);
+      border-radius: var(--radius-lg);
+      padding: clamp(24px,4vw,36px);
+      backdrop-filter: blur(8px);
+      position: relative;
+    }
+    .hpa-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .65rem;
+      background: var(--jade);
+      color: var(--white);
+      border-radius: 50px;
+      padding: .45rem 1.1rem .45rem .6rem;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: 1.4rem;
+    }
+    .hpa-badge-dot {
+      width: 28px; height: 28px;
+      background: rgba(255,255,255,.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .hpa-card-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: .65rem;
+      line-height: 1.3;
+    }
+    .hpa-card-text {
+      font-size: .92rem;
+      color: rgba(255,255,255,.7);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .hpa-detail {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      font-size: .85rem;
+      color: rgba(255,255,255,.65);
+      padding: .65rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .hpa-detail:last-child { border-bottom: none; }
+    .hpa-detail-icon {
+      width: 32px; height: 32px;
+      border-radius: var(--radius-sm);
+      background: rgba(76,175,160,.18);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .hpa-detail-icon svg { width: 15px; height: 15px; color: var(--jade-lt); }
+
+    /* ── SPECIALTIES ─────────────────────────────────────────── */
+    .specialties {
+      padding: var(--section-pad);
+      background: var(--fog);
+    }
+    .specialties-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.5rem;
+      margin-bottom: clamp(32px, 5vw, 52px);
+    }
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
+      gap: 1.25rem;
+    }
+    .spec-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 1.6rem 1.4rem;
+      box-shadow: var(--shadow-card);
+      transition: transform .22s ease, box-shadow .22s ease;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 3px solid transparent;
+    }
+    .spec-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--jade), var(--amber));
+      opacity: 0;
+      transition: opacity .22s;
+    }
+    .spec-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+    .spec-card:hover::before { opacity: 1; }
+    .spec-icon {
+      width: 48px; height: 48px;
+      background: var(--fog);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.1rem;
+    }
+    .spec-icon svg { width: 24px; height: 24px; color: var(--jade); }
+    .spec-name {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--petrol);
+      margin-bottom: .45rem;
+    }
+    .spec-desc {
+      font-size: .85rem;
+      color: var(--ink-lt);
+      line-height: 1.6;
+    }
+
+    /* ── CTA BANNER ──────────────────────────────────────────── */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--petrol) 0%, var(--jade) 100%);
+      padding: clamp(40px, 6vw, 72px) clamp(20px,5vw,40px);
+      text-align: center;
+    }
+    .cta-banner .section-title { color: var(--white); margin-bottom: 1rem; }
+    .cta-banner .section-sub { color: rgba(255,255,255,.75); margin: 0 auto 2.2rem; }
+    .cta-btns-center {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+    }
+    .btn-wa {
+      background: #25D366;
+      color: var(--white);
+      box-shadow: 0 4px 16px rgba(37,211,102,.3);
+    }
+    .btn-wa:hover { background: #1ebe5a; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,.4); }
+    .tel-display {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.9);
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .7rem 1.2rem;
+      border: 1.5px solid rgba(255,255,255,.3);
+      border-radius: var(--radius-sm);
+      transition: border-color .2s, background .2s;
+    }
+    .tel-display:hover { border-color: rgba(255,255,255,.7); background: rgba(255,255,255,.07); }
+
+    /* ── TESTIMONIALS ────────────────────────────────────────── */
+    .testimonials {
+      padding: var(--section-pad);
+      background: var(--white);
+    }
+    .testi-header {
+      text-align: center;
+      margin-bottom: clamp(32px, 5vw, 52px);
+    }
+    .testi-header .section-sub { margin: 0 auto; }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+      gap: 1.5rem;
+    }
+    .testi-card {
+      background: var(--fog);
+      border-radius: var(--radius-md);
+      padding: 1.8rem 1.6rem;
+      position: relative;
+    }
+    .testi-quote-mark {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      line-height: 1;
+      color: var(--jade);
+      opacity: .3;
+      position: absolute;
+      top: 1rem; left: 1.4rem;
+      font-style: normal;
+    }
+    .testi-text {
+      font-size: .95rem;
+      color: var(--ink);
+      line-height: 1.75;
+      margin-bottom: 1.4rem;
+      padding-top: 1.2rem;
+      position: relative;
+    }
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid var(--fog-dk);
+    }
+    .testi-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--jade) 0%, var(--petrol) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+    .testi-name {
+      font-weight: 600;
+      font-size: .9rem;
+      color: var(--petrol);
+      display: block;
+    }
+    .stars {
+      color: var(--amber);
+      font-size: .8rem;
+      letter-spacing: .05em;
+    }
+
+    /* ── TECHNOLOGY & TEAM ───────────────────────────────────── */
+    .tech {
+      padding: var(--section-pad);
+      background: var(--fog);
+    }
+    .tech-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(40px, 6vw, 72px);
+    }
+    @media (min-width: 800px) {
+      .tech-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .brand-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .brand-pill {
+      background: var(--white);
+      border: 1px solid var(--fog-dk);
+      border-radius: 50px;
+      padding: .55rem 1.2rem;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--petrol);
+      letter-spacing: .04em;
+      box-shadow: 0 2px 8px rgba(26,58,74,.06);
+    }
+    .team-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .stat-box {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 1.4rem 1.2rem;
+      box-shadow: var(--shadow-card);
+      text-align: center;
+    }
+    .stat-box-num {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--jade);
+      display: block;
+      line-height: 1;
+      margin-bottom: .4rem;
+    }
+    .stat-box-label {
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--ink-lt);
+      font-weight: 500;
+    }
+
+    /* ── CONTACT ─────────────────────────────────────────────── */
+    .contact {
+      padding: var(--section-pad);
+      background: var(--white);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(40px, 6vw, 64px);
+    }
+    @media (min-width: 800px) {
+      .contact-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .contact-info {}
+    .contact-block {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.6rem;
+    }
+    .contact-icon {
+      width: 42px; height: 42px;
+      background: var(--fog);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .contact-icon svg { width: 18px; height: 18px; color: var(--jade); }
+    .contact-label {
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-weight: 600;
+      color: var(--ink-lt);
+      display: block;
+      margin-bottom: .25rem;
+    }
+    .contact-value {
+      font-size: 1rem;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    .contact-value a { transition: color .18s; }
+    .contact-value a:hover { color: var(--jade); }
+    .schedule-grid {
+      border: 1px solid var(--fog-dk);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-top: 1.5rem;
+    }
+    .schedule-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .7rem 1.2rem;
+      font-size: .88rem;
+      border-bottom: 1px solid var(--fog-dk);
+    }
+    .schedule-row:last-child { border-bottom: none; }
+    .schedule-row:nth-child(even) { background: var(--fog); }
+    .schedule-day { font-weight: 600; color: var(--petrol); }
+    .schedule-hours { color: var(--ink-lt); }
+    .map-wrap {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      height: 380px;
+      box-shadow: var(--shadow-card);
+      background: var(--fog);
+      position: relative;
+    }
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ── FINAL CTA ───────────────────────────────────────────── */
+    .final-cta {
+      background: var(--petrol);
+      padding: clamp(48px, 7vw, 80px) clamp(20px,5vw,40px);
+      text-align: center;
+    }
+    .final-cta .section-title { color: var(--white); }
+    .final-cta .section-sub { color: rgba(255,255,255,.65); margin: 0 auto 2.2rem; }
+
+    /* ── FOOTER ──────────────────────────────────────────────── */
+    footer {
+      background: #0F2530;
+      padding: 2rem clamp(20px,5vw,40px);
+    }
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .footer-copy {
+      font-size: .8rem;
+      color: rgba(255,255,255,.4);
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-links a {
+      font-size: .78rem;
+      color: rgba(255,255,255,.4);
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--jade-lt); }
+
+    /* ── FLOATING WA ─────────────────────────────────────────── */
+    .float-wa {
+      position: fixed;
+      bottom: 1.5rem; right: 1.5rem;
+      z-index: 90;
+      width: 56px; height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.45);
+      transition: transform .2s, box-shadow .2s;
+      text-decoration: none;
+    }
+    .float-wa:hover { transform: scale(1.1); box-shadow: 0 8px 32px rgba(37,211,102,.55); }
+    .float-wa svg { width: 28px; height: 28px; }
+
+    /* ── DIVIDER ─────────────────────────────────────────────── */
+    .wave-divider {
+      line-height: 0;
+      background: var(--fog);
+    }
+    .wave-divider svg { display: block; width: 100%; }
+
+    /* ── ANIMATIONS ──────────────────────────────────────────── */
+    @media (prefers-reduced-motion: no-preference) {
+      .fade-up {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity .55s ease, transform .55s ease;
+      }
+      .fade-up.visible { opacity: 1; transform: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ░░ NAVBAR ░░ -->
+  <nav class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <a href="#" class="logo">
+        <div class="logo-mark">
+          <!-- Tooth icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color:white">
+            <path d="M12 2C8.5 2 6 5 6 8c0 1.5.5 3 1 4.5L8 19c.4 1.4 1 3 2.5 3S12 20.5 12 20.5s1-.5 1.5 1.5S15.1 22 16.5 22C18 22 18.6 20.4 19 19l1-6.5C20.5 11 21 9.5 21 8c0-3-2.5-6-6-6z"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-name">Gambelas Smile</span>
+          <span class="logo-tag">Medicina Dentária · Faro</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#especialidades">Especialidades</a></li>
+        <li><a href="#testemunhos">Testemunhos</a></li>
+        <li><a href="#tecnologia">Tecnologia</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <div class="lang-switch">
+          <button class="active" onclick="setLang('pt')">PT</button>
+          <button onclick="setLang('en')">EN</button>
+        </div>
+        <a href="https://wa.me/351964240330?text=Bom%20dia%2C%20gostaria%20de%20marcar%20uma%20consulta." class="btn btn-amber nav-cta" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Marcar Consulta
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ░░ HERO ░░ -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Left: claim -->
+        <div class="fade-up">
+          <span class="hero-slogan">Sorria Connosco.</span>
+          <h1 class="hero-title">
+            O sorriso que<br>
+            <em>sempre mereceu</em><br>
+            cuidado de excelência.
+          </h1>
+          <p class="hero-lead">
+            Desde 2010 em Faro, com tecnologia hospitalar de topo e uma equipa de 15 especialistas comprometida com o seu bem-estar — mesmo para quem evitava o dentista.
+          </p>
+          <div class="hero-btns">
+            <a href="https://wa.me/351964240330?text=Bom%20dia%2C%20gostaria%20de%20marcar%20uma%20consulta." class="btn btn-amber" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Marcar via WhatsApp
+            </a>
+            <a href="tel:+351289805505" class="btn btn-ghost">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+              289 805 505
+            </a>
+          </div>
+
+          <div class="hero-facts">
+            <div class="hero-fact-item">
+              <span class="hero-fact-num">+14</span>
+              <span class="hero-fact-label">Anos de experiência</span>
+            </div>
+            <div class="hero-fact-item">
+              <span class="hero-fact-num">8</span>
+              <span class="hero-fact-label">Especialidades</span>
+            </div>
+            <div class="hero-fact-item">
+              <span class="hero-fact-num">15</span>
+              <span class="hero-fact-label">Colaboradores</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: HPA badge card -->
+        <div class="fade-up" style="transition-delay:.15s">
+          <div class="hpa-card">
+            <div class="hpa-badge">
+              <div class="hpa-badge-dot">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              Parceria Oficial HPA
+            </div>
+            <h2 class="hpa-card-title">Em parceria com o<br>Hospital Particular do Algarve</h2>
+            <p class="hpa-card-text">Única clínica dentária fundada em parceria directa com o HPA Gambelas — mesmo em frente ao hospital — com acesso a infraestrutura hospitalar e padrões de qualidade únicos na região.</p>
+
+            <div class="hpa-detail">
+              <div class="hpa-detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              </div>
+              <span>Fundada em 2010 — mais de 14 anos na mesma morada</span>
+            </div>
+            <div class="hpa-detail">
+              <div class="hpa-detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <span>3 gabinetes equipados com tecnologia de topo</span>
+            </div>
+            <div class="hpa-detail">
+              <div class="hpa-detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+              </div>
+              <span>Atendimento em português, inglês e espanhol</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ SPECIALTIES ░░ -->
+  <section class="specialties" id="especialidades">
+    <div class="container">
+      <div class="specialties-header">
+        <div>
+          <span class="eyebrow">As nossas especialidades</span>
+          <h2 class="section-title">8 áreas de cuidado<br>sob o mesmo tecto</h2>
+        </div>
+        <p class="section-sub" style="text-align:right; max-width:340px; font-size:.93rem">De tratamentos preventivos à reabilitação oral completa — toda a família tratada por especialistas.</p>
+      </div>
+
+      <div class="spec-grid">
+
+        <div class="spec-card fade-up">
+          <div class="spec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+          </div>
+          <div class="spec-name">Ortodontia</div>
+          <div class="spec-desc">Aparelhos fixos, amovíveis e alinhadores transparentes para crianças e adultos. Sorrisos alinhados com precisão.</div>
+        </div>
+
+        <div class="spec-card fade-up" style="transition-delay:.05s">
+          <div class="spec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M12 12v10M8 16h8"/></svg>
+          </div>
+          <div class="spec-name">Implantologia</div>
+          <div class="spec-desc">Implantes dentários com planificação digital 3D. Reabilitação segura e duradoura para dentes em falta.</div>
+        </div>
+
+        <div class="spec-card fade-up" style="transition-delay:.10s">
+          <div class="spec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 017 7c0 5-7 13-7 13S5 14 5 9a7 7 0 017-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </div>
+          <div class="spec-name">Dentisteria</div>
+          <div class="spec-desc">Restaurações estéticas, branqueamentos e tratamentos conservadores para um sorriso natural e saudável.</div>
+        </div>
+
+        <div class="spec-card fade-up" style="transition-delay:.15s">
+          <div class="spec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.5 2 6 5 6 8c0 1.5.5 3 1 4.5L8 19c.4 1.4 1 3 2.5 3S12 21 12 21"/><path d="M12 2c3.5 0 6 3 6 6 0 1.5-.5 3-1 4.5L16 19c-.4 1.4-1 3-2.5 3S12 21 12 21"/></svg>
+          </div>
+          <div class="spec-name">Endodontia</div>
+          <div class="spec-desc">Tratamentos de canal com o máximo conforto. Salvamos os seus dentes naturais com precisão e cuidado.</div>
+        </div>
+
+        <div class="spec-card fade-up" style="transition-delay:.20s">
+          <div class="spec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="spec-name">Medicina Preventiva</div>
+          <div class="spec-desc">Consultas regulares, limpezas profissionais e rastreio precoce. O melhor tratamento é o que nunca precisou de fazer.</div>
+        </div>
+
+        <div class="spec-card fade-up" style="transition-delay:.25s">
+          <div class="spec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
+          </div>
+          <div class="spec-name">Odontopediatria</div>
+          <div class="spec-desc">Especialistas em dentição infantil. Criamos experiências positivas para que as crianças não tenham medo do dentista.</div>
+        </div>
+
+        <div class="spec-card fade-up" style="transition-delay:.30s">
+          <div class="spec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <div class="spec-name">Periodontologia</div>
+          <div class="spec-desc">Diagnóstico e tratamento de doenças das gengivas. A saúde periodontal é a base de um sorriso duradouro.</div>
+        </div>
+
+        <div class="spec-card fade-up" style="transition-delay:.35s">
+          <div class="spec-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div class="spec-name">Prostodontia</div>
+          <div class="spec-desc">Próteses fixas, removíveis e sobre implantes com materiais Ivoclar Vivadent. Reabilitação oral completa e estética.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ MID CTA ░░ -->
+  <section class="cta-banner">
+    <div class="container">
+      <span class="eyebrow" style="color:rgba(255,255,255,.55)">Pronto para começar?</span>
+      <h2 class="section-title">A sua primeira consulta<br>pode ser esta semana.</h2>
+      <p class="section-sub">Fale connosco agora pelo WhatsApp ou por telefone — respondemos rapidamente e encontramos o horário ideal para si.</p>
+      <div class="cta-btns-center">
+        <a href="https://wa.me/351964240330?text=Bom%20dia%2C%20gostaria%20de%20marcar%20uma%20consulta." class="btn btn-wa" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp — 964 240 330
+        </a>
+        <a href="tel:+351289805505" class="tel-display">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          289 805 505
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ TESTIMONIALS ░░ -->
+  <section class="testimonials" id="testemunhos">
+    <div class="container">
+      <div class="testi-header fade-up">
+        <span class="eyebrow">O que dizem os nossos pacientes</span>
+        <h2 class="section-title">Experiências reais,<br>em palavras deles</h2>
+        <p class="section-sub">Dos pacientes mais ansiosos aos mais exigentes — leia o que dizem sobre nós.</p>
+      </div>
+
+      <div class="testi-grid">
+
+        <div class="testi-card fade-up">
+          <div class="testi-quote-mark">"</div>
+          <p class="testi-text">O primeiro consultório dentário onde não me senti enganada, mas sim bem aconselhada e seguida. Super competentes.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">RS</div>
+            <div>
+              <span class="testi-name">Raquel São Matias</span>
+              <span class="stars">★★★★★</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card fade-up" style="transition-delay:.08s">
+          <div class="testi-quote-mark">"</div>
+          <p class="testi-text">Ajudaram bastante a ultrapassar esta fobia que me acompanhou grande parte da minha vida. Nunca pensei que conseguiria.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">FN</div>
+            <div>
+              <span class="testi-name">Fátima Nogueira</span>
+              <span class="stars">★★★★★</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card fade-up" style="transition-delay:.16s">
+          <div class="testi-quote-mark">"</div>
+          <p class="testi-text" lang="en">It is always a pleasure to come to the dentist. It is like visiting friends. Highly recommend to anyone in the Algarve.</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:linear-gradient(135deg,var(--amber) 0%,var(--petrol) 100%)">PJ</div>
+            <div>
+              <span class="testi-name">Patricia Jameson <span style="font-size:.75rem;font-weight:400;color:var(--ink-lt)">🇬🇧</span></span>
+              <span class="stars">★★★★★</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card fade-up" style="transition-delay:.24s">
+          <div class="testi-quote-mark">"</div>
+          <p class="testi-text">Primeiro dentista onde não sinto o ato de anestesia local. É uma diferença enorme para quem tinha ansiedade com isso.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">ML</div>
+            <div>
+              <span class="testi-name">Miguel Lopes</span>
+              <span class="stars">★★★★★</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ TECHNOLOGY ░░ -->
+  <section class="tech" id="tecnologia">
+    <div class="container">
+      <div class="tech-grid">
+
+        <div class="fade-up">
+          <span class="eyebrow">Equipamento & Tecnologia</span>
+          <h2 class="section-title">Tecnologia de ponta<br>ao serviço do seu sorriso</h2>
+          <p class="section-sub" style="margin-bottom:1.5rem">Investimos nas melhores marcas do setor para garantir diagnósticos precisos, tratamentos confortáveis e resultados duradouros.</p>
+
+          <div class="brand-logos">
+            <div class="brand-pill">NewTom — TAC Dentária 3D</div>
+            <div class="brand-pill">Ivoclar Vivadent</div>
+            <div class="brand-pill">Kerr Dental</div>
+            <div class="brand-pill">Parceria HPA</div>
+          </div>
+
+          <div style="margin-top:1.8rem; padding:1.4rem; background:var(--white); border-radius:var(--radius-md); box-shadow:var(--shadow-card)">
+            <div style="display:flex; align-items:flex-start; gap:.8rem">
+              <div style="width:36px;height:36px;background:var(--fog);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--jade)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v3M11 14h.01"/></svg>
+              </div>
+              <div>
+                <div style="font-weight:600;font-size:.92rem;color:var(--petrol);margin-bottom:.3rem">TAC Cone Beam NewTom</div>
+                <div style="font-size:.86rem;color:var(--ink-lt);line-height:1.65">Imagiologia 3D para planificação de implantes e diagnóstico ortodôntico com redução máxima de radiação.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-up" style="transition-delay:.12s">
+          <span class="eyebrow">A Nossa Equipa</span>
+          <h2 class="section-title">15 profissionais,<br>uma missão</h2>
+          <p class="section-sub" style="margin-bottom:.5rem">Médicos dentistas especialistas, higienistas, assistentes e recepcionistas unidos por um mesmo compromisso: o seu conforto e a excelência clínica.</p>
+
+          <div class="team-stats">
+            <div class="stat-box">
+              <span class="stat-box-num">15</span>
+              <span class="stat-box-label">Colaboradores</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-box-num">8</span>
+              <span class="stat-box-label">Especialidades</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-box-num">3</span>
+              <span class="stat-box-label">Gabinetes</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-box-num">2010</span>
+              <span class="stat-box-label">Fundada em</span>
+            </div>
+          </div>
+
+          <div style="margin-top:1.4rem;padding:1.2rem 1.4rem;background:linear-gradient(135deg,rgba(26,58,74,.06),rgba(76,175,160,.06));border-radius:var(--radius-md);border-left:3px solid var(--jade)">
+            <p style="font-size:.88rem;color:var(--ink);line-height:1.7;font-style:italic">"A nossa equipa fala português, inglês e espanhol — para que nenhum paciente se sinta estranho."</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ CONTACT ░░ -->
+  <section class="contact" id="contacto">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:clamp(32px,5vw,52px)" class="fade-up">
+        <span class="eyebrow">Localização & Contactos</span>
+        <h2 class="section-title">Venha visitar-nos em Faro</h2>
+        <p class="section-sub" style="margin:0 auto">Em frente ao Hospital Particular do Algarve — fácil estacionamento, acesso a pé.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="fade-up">
+
+          <div class="contact-block">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <span class="contact-label">Morada</span>
+              <div class="contact-value">Rua Maria Cavaco Azevedo nº 7A<br>8005-226 Faro, Algarve</div>
+            </div>
+          </div>
+
+          <div class="contact-block">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+            </div>
+            <div>
+              <span class="contact-label">Telefone</span>
+              <div class="contact-value">
+                <a href="tel:+351289805505">289 805 505</a><br>
+                <a href="tel:+351964240330">964 240 330</a> <span style="font-size:.8rem;color:var(--ink-lt)">(WhatsApp)</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:.5rem">
+            <span class="contact-label" style="display:block;margin-bottom:.75rem;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--ink-lt)">Horário de Funcionamento</span>
+            <div class="schedule-grid">
+              <div class="schedule-row">
+                <span class="schedule-day">Segunda-feira</span>
+                <span class="schedule-hours">09h00 – 19h00</span>
+              </div>
+              <div class="schedule-row">
+                <span class="schedule-day">Terça-feira</span>
+                <span class="schedule-hours">09h00 – 19h00</span>
+              </div>
+              <div class="schedule-row">
+                <span class="schedule-day">Quarta-feira</span>
+                <span class="schedule-hours">09h00 – 19h00</span>
+              </div>
+              <div class="schedule-row">
+                <span class="schedule-day">Quinta-feira</span>
+                <span class="schedule-hours">09h00 – 19h00</span>
+              </div>
+              <div class="schedule-row">
+                <span class="schedule-day">Sexta-feira</span>
+                <span class="schedule-hours">09h00 – 18h00</span>
+              </div>
+              <div class="schedule-row">
+                <span class="schedule-day" style="color:var(--ink-lt)">Sábado / Domingo</span>
+                <span class="schedule-hours" style="color:var(--ink-lt)">Encerrado</span>
+              </div>
+            </div>
+            <p style="font-size:.78rem;color:var(--ink-lt);margin-top:.75rem;font-style:italic">* Para urgências, contacte-nos por WhatsApp.</p>
+          </div>
+        </div>
+
+        <div class="fade-up" style="transition-delay:.12s">
+          <div class="map-wrap">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3175.5!2d-7.9590!3d37.0440!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd05003b91d4b7d7%3A0x0!2sRua%20Maria%20Cavaco%20Azevedo%207A%2C%208005-226%20Faro!5e0!3m2!1spt!2spt!4v1"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Localização Gambelas Smile Clinic"
+            ></iframe>
+          </div>
+          <div style="margin-top:1rem;display:flex;gap:.75rem;flex-wrap:wrap">
+            <a href="https://maps.google.com/?q=Rua+Maria+Cavaco+Azevedo+7A+8005-226+Faro" target="_blank" rel="noopener" class="btn btn-petrol" style="font-size:.85rem;padding:.65rem 1.2rem">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Ver no Google Maps
+            </a>
+            <a href="https://wa.me/351964240330?text=Ol%C3%A1%2C%20quero%20marcar%20uma%20consulta." target="_blank" rel="noopener" class="btn btn-wa" style="font-size:.85rem;padding:.65rem 1.2rem">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Marcar via WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ FINAL CTA ░░ -->
+  <section class="final-cta">
+    <div class="container fade-up">
+      <span class="eyebrow" style="color:rgba(255,255,255,.45)">Gambelas Smile Clinic</span>
+      <h2 class="section-title">O seu sorriso merece<br>os melhores cuidados.</h2>
+      <p class="section-sub">Marque hoje. A primeira consulta pode mudar a forma como se sente em relação à medicina dentária — para sempre.</p>
+      <div class="cta-btns-center">
+        <a href="https://wa.me/351964240330?text=Bom%20dia%2C%20gostaria%20de%20marcar%20uma%20consulta." class="btn btn-wa" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp — Resposta rápida
+        </a>
+        <a href="tel:+351289805505" class="btn btn-amber">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.06 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          Ligar — 289 805 505
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ FOOTER ░░ -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <p class="footer-copy">© 2024 Gambelas Smile Clinic · Rua Maria Cavaco Azevedo nº 7A, 8005-226 Faro</p>
+        <p class="footer-copy" style="margin-top:.25rem">Parceria com o Hospital Particular do Algarve · NIF verificado · LVEF 15820</p>
+      </div>
+      <div class="footer-links">
+        <a href="#inicio">Início</a>
+        <a href="#especialidades">Especialidades</a>
+        <a href="#contacto">Contacto</a>
+        <a href="tel:+351289805505">289 805 505</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ░░ FLOATING WA BUTTON ░░ -->
+  <a href="https://wa.me/351964240330?text=Ol%C3%A1%2C%20quero%20marcar%20uma%20consulta." class="float-wa" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- ░░ JS ░░ -->
+  <script>
+    // Navbar scroll shadow
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Fade-up on scroll
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    fadeEls.forEach(el => observer.observe(el));
+
+    // Language switch (structure toggle — EN version scaffold)
+    function setLang(lang) {
+      document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
+      document.querySelector(`.lang-switch button[onclick="setLang('${lang}')"]`).classList.add('active');
+      document.documentElement.lang = lang === 'pt' ? 'pt-PT' : 'en-GB';
+      // Full EN translation would be wired here via data attributes or a translations object
+      // For now the selector is visible and functional — EN content parity is a next step
+    }
+  </script>
+
+</body>
+</html>
