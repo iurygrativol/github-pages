@@ -270,8 +270,8 @@
     .then(function(res){
       if(res.status === 202 || res.ok){
         form.style.display = 'none';
-        show('ok','✅ <b>Quase lá!</b> Confirma a tua subscrição no email que acabámos de enviar para receberes o checklist. Verifica também a caixa de spam/promoções.');
-        if(window.fbq){ fbq('track','Lead'); }   // dispara evento Lead no Pixel se presente
+        show('ok','✅ <b>Enviado!</b> Verifica o teu email para confirmar a subscrição e receber o checklist.<br><br>Entretanto, <a href="/50-nichos-pinterest.html" style="color:#E60023;font-weight:700;text-decoration:underline">clica aqui para ver os 50 nichos agora →</a>');
+        if(window.fbq){ fbq('track','Lead'); }
       } else {
         throw new Error('status ' + res.status);
       }
