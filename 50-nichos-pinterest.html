@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>50 Nichos que Pagam Comissão no Pinterest</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; color: #222; }
+  .hero {
+    background: linear-gradient(135deg, #E60023 0%, #ad081b 100%);
+    color: white; text-align: center; padding: 50px 20px 40px;
+  }
+  .hero h1 { font-size: 2.2rem; font-weight: 900; margin-bottom: 12px; line-height: 1.2; }
+  .hero p { font-size: 1.1rem; opacity: .9; max-width: 600px; margin: 0 auto; }
+  .badge {
+    display: inline-block; background: #FFD700; color: #000;
+    font-weight: 800; padding: 6px 18px; border-radius: 20px;
+    font-size: .9rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;
+  }
+  .container { max-width: 760px; margin: 0 auto; padding: 40px 20px; }
+  .intro {
+    background: white; border-radius: 12px; padding: 30px;
+    margin-bottom: 30px; border-left: 5px solid #E60023;
+    box-shadow: 0 2px 12px rgba(0,0,0,.08);
+  }
+  .intro p { font-size: 1.05rem; line-height: 1.7; color: #444; }
+  .intro strong { color: #E60023; }
+  .section-title {
+    font-size: 1.5rem; font-weight: 800; color: #111;
+    margin: 40px 0 20px; padding-bottom: 10px;
+    border-bottom: 3px solid #E60023;
+  }
+  .category {
+    background: white; border-radius: 12px; margin-bottom: 20px;
+    overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08);
+  }
+  .category-header {
+    background: #E60023; color: white;
+    padding: 14px 20px; font-weight: 800; font-size: 1rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .category-header .icon { font-size: 1.3rem; }
+  .nicho-list { padding: 8px 0; }
+  .nicho-item {
+    display: flex; align-items: center; gap: 14px;
+    padding: 12px 20px; border-bottom: 1px solid #f0f0f0;
+    transition: background .2s;
+  }
+  .nicho-item:last-child { border-bottom: none; }
+  .nicho-item:hover { background: #fff8f8; }
+  .checkbox {
+    width: 22px; height: 22px; border: 2px solid #E60023;
+    border-radius: 4px; flex-shrink: 0; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all .2s;
+  }
+  .checkbox.checked { background: #E60023; }
+  .checkbox.checked::after { content: '✓'; color: white; font-size: .9rem; font-weight: 800; }
+  .nicho-name { font-weight: 600; font-size: .95rem; color: #222; }
+  .nicho-tip { font-size: .82rem; color: #888; margin-top: 2px; }
+  .commission {
+    margin-left: auto; font-weight: 800; color: #E60023;
+    font-size: .9rem; white-space: nowrap;
+  }
+  .cta-box {
+    background: linear-gradient(135deg, #111 0%, #333 100%);
+    color: white; border-radius: 16px; padding: 40px 30px;
+    text-align: center; margin-top: 50px;
+  }
+  .cta-box h2 { font-size: 1.6rem; font-weight: 900; margin-bottom: 12px; }
+  .cta-box p { color: #ccc; margin-bottom: 25px; line-height: 1.6; }
+  .cta-btn {
+    display: inline-block; background: #E60023; color: white;
+    padding: 16px 36px; border-radius: 8px; text-decoration: none;
+    font-weight: 800; font-size: 1.05rem; transition: transform .2s;
+  }
+  .cta-btn:hover { transform: translateY(-2px); background: #c4001f; }
+  .price-old { text-decoration: line-through; color: #999; font-size: .9rem; }
+  .price-new { font-size: 2rem; font-weight: 900; color: #FFD700; }
+  .progress-bar {
+    background: #f0f0f0; border-radius: 20px; height: 8px;
+    margin: 30px 0 10px; overflow: hidden;
+  }
+  .progress-fill {
+    background: #E60023; height: 100%; border-radius: 20px; width: 0%;
+    transition: width .5s ease;
+  }
+  .progress-label { text-align: center; font-size: .85rem; color: #666; margin-bottom: 30px; }
+  footer { text-align: center; padding: 30px; color: #999; font-size: .85rem; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">Recurso Gratuito</div>
+  <h1>50 Nichos que Pagam<br>Comissão no Pinterest</h1>
+  <p>A lista completa dos nichos mais lucrativos para ganhar dinheiro com afiliados no Pinterest — mesmo sem mostrar o rosto.</p>
+</div>
+
+<div class="container">
+
+  <div class="intro">
+    <p>Olá! Obrigado por te juntares ao <strong>Guia Pinterest do Zero</strong>. 🎉<br><br>
+    Abaixo encontras os <strong>50 nichos com maior potencial de comissão</strong> no Pinterest. Usa os checkboxes para marcar os nichos que queres explorar. Os percentuais de comissão indicados são referências médias em programas de afiliados como Amazon, ShareASale, e outros.</p>
+  </div>
+
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="progress-label" id="progressLabel">0 de 50 nichos selecionados</div>
+
+  <!-- CATEGORIA 1 -->
+  <div class="section-title">💰 Finanças Pessoais e Investimento</div>
+  <div class="category">
+    <div class="nicho-list">
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Finanças pessoais para mulheres</div><div class="nicho-tip">Orçamento, poupança, independência financeira</div></div>
+        <div class="commission">até 50%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Investimento para iniciantes</div><div class="nicho-tip">ETFs, fundos indexados, criptomoedas</div></div>
+        <div class="commission">até 40%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Ganhar dinheiro online</div><div class="nicho-tip">Freelancing, negócios digitais, renda passiva</div></div>
+        <div class="commission">até 50%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Pagar dívidas e crédito</div><div class="nicho-tip">Gestão de dívida, score de crédito</div></div>
+        <div class="commission">até 35%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Marketing de afiliados</div><div class="nicho-tip">Como ganhar com promoções e comissões</div></div>
+        <div class="commission">até 50%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORIA 2 -->
+  <div class="section-title">🏠 Casa, Decoração e DIY</div>
+  <div class="category">
+    <div class="nicho-list">
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Decoração de interiores</div><div class="nicho-tip">Estilos modernos, minimalismo, boho</div></div>
+        <div class="commission">3–10%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Organização do lar</div><div class="nicho-tip">Produtos de organização, métodos KonMari</div></div>
+        <div class="commission">5–15%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">DIY e projetos caseiros</div><div class="nicho-tip">Tutoriais, ferramentas, materiais</div></div>
+        <div class="commission">5–12%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Jardinagem e plantas</div><div class="nicho-tip">Plantas de interior, hortas, jardinagem urbana</div></div>
+        <div class="commission">5–15%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Mudança e renovação</div><div class="nicho-tip">First home, apartamento pequeno, reforma</div></div>
+        <div class="commission">3–8%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORIA 3 -->
+  <div class="section-title">💄 Beleza e Cuidados Pessoais</div>
+  <div class="category">
+    <div class="nicho-list">
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Skincare e cuidados da pele</div><div class="nicho-tip">Rotinas, produtos, anti-envelhecimento</div></div>
+        <div class="commission">10–25%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Maquiagem e tutoriais</div><div class="nicho-tip">Looks, técnicas, produtos recomendados</div></div>
+        <div class="commission">10–20%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Cabelos naturais e cuidados</div><div class="nicho-tip">Tratamentos, produtos, penteados</div></div>
+        <div class="commission">10–20%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Beleza natural e clean beauty</div><div class="nicho-tip">Produtos orgânicos, sem químicos</div></div>
+        <div class="commission">15–30%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Perfumes e fragrâncias</div><div class="nicho-tip">Reviews, recomendações, dupes</div></div>
+        <div class="commission">5–15%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORIA 4 -->
+  <div class="section-title">👗 Moda e Estilo</div>
+  <div class="category">
+    <div class="nicho-list">
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Moda feminina casual</div><div class="nicho-tip">Looks do dia, outfits, tendências</div></div>
+        <div class="commission">5–15%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Moda plus size</div><div class="nicho-tip">Looks inclusivos, marcas, inspirações</div></div>
+        <div class="commission">8–20%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Moda sustentável</div><div class="nicho-tip">Segunda mão, marcas éticas, eco fashion</div></div>
+        <div class="commission">10–25%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Cápsula wardrobe / minimalismo</div><div class="nicho-tip">Menos é mais, peças versáteis</div></div>
+        <div class="commission">8–18%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Moda praia e verão</div><div class="nicho-tip">Biquínis, roupas de verão, acessórios</div></div>
+        <div class="commission">8–20%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORIA 5 -->
+  <div class="section-title">🍎 Saúde, Bem-Estar e Fitness</div>
+  <div class="category">
+    <div class="nicho-list">
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Perda de peso e dietas</div><div class="nicho-tip">Keto, jejum intermitente, low carb</div></div>
+        <div class="commission">20–50%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Yoga e meditação</div><div class="nicho-tip">Práticas, equipamentos, apps</div></div>
+        <div class="commission">10–30%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Fitness em casa</div><div class="nicho-tip">Treinos sem ginásio, equipamentos</div></div>
+        <div class="commission">5–20%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Saúde mental e autoestima</div><div class="nicho-tip">Mindfulness, journaling, terapia online</div></div>
+        <div class="commission">20–50%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Suplementos e nutrição</div><div class="nicho-tip">Proteínas, vitaminas, colágeno</div></div>
+        <div class="commission">10–25%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORIA 6 -->
+  <div class="section-title">🍽️ Receitas e Culinária</div>
+  <div class="category">
+    <div class="nicho-list">
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Receitas rápidas para o trabalho</div><div class="nicho-tip">Meal prep, marmitas, 30 minutos</div></div>
+        <div class="commission">3–10%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Culinária vegana e vegetariana</div><div class="nicho-tip">Receitas, produtos, substituições</div></div>
+        <div class="commission">5–15%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Sobremesas e doces</div><div class="nicho-tip">Bolos, cookies, receitas virais</div></div>
+        <div class="commission">3–10%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Receitas sem glúten / sem lactose</div><div class="nicho-tip">Alimentos especiais, substituições</div></div>
+        <div class="commission">5–20%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Utensílios de cozinha</div><div class="nicho-tip">Airfryer, gadgets, equipamentos</div></div>
+        <div class="commission">3–8%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORIA 7 -->
+  <div class="section-title">✈️ Viagens e Turismo</div>
+  <div class="category">
+    <div class="nicho-list">
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Viagens económicas / backpacking</div><div class="nicho-tip">Como viajar barato, dicas de poupança</div></div>
+        <div class="commission">3–8%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Viagens de luxo</div><div class="nicho-tip">Hotéis, experiências premium</div></div>
+        <div class="commission">3–10%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Road trips e caravanismo</div><div class="nicho-tip">Rotas, equipamentos, dicas</div></div>
+        <div class="commission">5–15%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Viagens a solo (mulheres)</div><div class="nicho-tip">Segurança, destinos, dicas práticas</div></div>
+        <div class="commission">3–10%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Nomadismo digital</div><div class="nicho-tip">Trabalhar online enquanto viajas</div></div>
+        <div class="commission">20–50%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORIA 8 -->
+  <div class="section-title">👶 Maternidade e Família</div>
+  <div class="category">
+    <div class="nicho-list">
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Maternidade e bebé</div><div class="nicho-tip">Produtos, dicas, desenvolvimento</div></div>
+        <div class="commission">3–10%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Educação em casa (homeschool)</div><div class="nicho-tip">Recursos, materiais, metodologias</div></div>
+        <div class="commission">10–30%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Gestão do lar e produtividade</div><div class="nicho-tip">Rotinas, planeamento, ferramentas</div></div>
+        <div class="commission">10–40%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Festas e eventos infantis</div><div class="nicho-tip">Decorações, temas, ideias criativas</div></div>
+        <div class="commission">5–15%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Atividades para crianças</div><div class="nicho-tip">Crafts, jogos, brinquedos educativos</div></div>
+        <div class="commission">3–10%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORIA 9 -->
+  <div class="section-title">📚 Educação e Desenvolvimento Pessoal</div>
+  <div class="category">
+    <div class="nicho-list">
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Desenvolvimento pessoal / self-help</div><div class="nicho-tip">Livros, cursos, motivação</div></div>
+        <div class="commission">20–50%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Produtividade e gestão de tempo</div><div class="nicho-tip">Apps, métodos, ferramentas</div></div>
+        <div class="commission">15–40%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Aprender idiomas online</div><div class="nicho-tip">Apps, cursos, métodos</div></div>
+        <div class="commission">10–30%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Cursos online e plataformas</div><div class="nicho-tip">Udemy, Coursera, habilidades digitais</div></div>
+        <div class="commission">15–45%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Preparação para exames</div><div class="nicho-tip">Concursos, licenciaturas, certificações</div></div>
+        <div class="commission">10–30%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORIA 10 -->
+  <div class="section-title">🐾 Animais de Estimação</div>
+  <div class="category">
+    <div class="nicho-list">
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Cuidados com cães</div><div class="nicho-tip">Alimentação, saúde, treino</div></div>
+        <div class="commission">5–20%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Cuidados com gatos</div><div class="nicho-tip">Produtos, comportamento, saúde</div></div>
+        <div class="commission">5–20%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Alimentação natural para pets</div><div class="nicho-tip">BARF, receitas, suplementos</div></div>
+        <div class="commission">10–25%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Acessórios e moda para pets</div><div class="nicho-tip">Roupinhas, camas, brinquedos</div></div>
+        <div class="commission">8–20%</div>
+      </div>
+      <div class="nicho-item">
+        <div class="checkbox" onclick="toggle(this)"></div>
+        <div><div class="nicho-name">Viagens com animais</div><div class="nicho-tip">Pet-friendly, transporte, alojamento</div></div>
+        <div class="commission">3–10%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <h2>Tens o nicho. Agora precisas do método.</h2>
+    <p>O "Guia Pinterest do Zero" ensina-te passo a passo como criar pins que vendem, encontrar produtos afiliados lucrativos e configurar o teu perfil para crescer no automático — sem mostrar o rosto, sem TikTok, sem Instagram.</p>
+    <div style="margin-bottom:20px">
+      <span class="price-old">€49</span><br>
+      <span class="price-new">€27</span>
+    </div>
+    <a href="https://guiapinterest.atoms.world/" class="cta-btn">Quero o Guia Completo →</a>
+    <p style="margin-top:16px;font-size:.82rem;color:#888;">Acesso imediato • Pagamento seguro • Garantia 30 dias</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Guia Pinterest do Zero. Todos os direitos reservados.</p>
+  <p style="margin-top:8px"><a href="https://guiapinterest.atoms.world/" style="color:#E60023;">guiapinterest.atoms.world</a></p>
+</footer>
+
+<script>
+  var total = document.querySelectorAll('.checkbox').length;
+  function toggle(el) {
+    el.classList.toggle('checked');
+    updateProgress();
+  }
+  function updateProgress() {
+    var checked = document.querySelectorAll('.checkbox.checked').length;
+    var pct = (checked / total) * 100;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = checked + ' de ' + total + ' nichos selecionados';
+  }
+</script>
+
+</body>
+</html>
